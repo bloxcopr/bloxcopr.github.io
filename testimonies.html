@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <!-- Website Encoding -->
+        <meta charset="UTF-8">
+        <!-- Traditional Meta Tags -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="application-name" content="Bloxco PR Hub">
+        <meta name="author" content="Bloxco PR Department">
+        <meta name="description" content="The official Bloxco PR hub">
+        <meta name="keywords" content="Bloxco, PR">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Page Title -->
+        <title>Bloxco PR Hub</title>
+        <!-- CSS Styles Linking -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- Favicon Linking -->
+        <link rel="icon" type="image/x-icon" href="https://bloxcopr.github.io/favicon.ico">
+        <script defer src="script.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #d1d1d1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Header same as before */
+    .navbar-container {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 0.8rem 2rem;
+      background-color: #0d0d0d;
+      border-radius: 999px;
+      width: 90%;
+      max-width: 1100px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .logo img {
+      height: 30px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .nav-links > .dropdown > a {
+      font-weight: bold;
+      position: relative;
+      color: #d1d1d1;
+      cursor: default;
+    }
+
+    .dropdown-content {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: scaleY(0);
+      transform-origin: top;
+      position: absolute;
+      top: 35px;
+      background-color: #111;
+      padding: 0.8rem 0;
+      border-radius: 12px;
+      min-width: 150px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      transition: all 0.25s ease-in-out;
+      z-index: 10;
+    }
+
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: scaleY(1);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 8px 16px;
+      font-size: 14px;
+      white-space: nowrap;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .cta-button button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button button:hover {
+      background-color: #0056cc;
+    }
+
+    /* Testimonies container */
+    main {
+      flex-grow: 1;
+      max-width: 800px;
+      width: 90%;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+      align-items: stretch; /* Make cards equal height */
+    }
+
+    /* Testimony card */
+    .testimony {
+      background: #111;
+      border-radius: 16px;
+      padding: 24px 30px;
+      box-shadow: 0 6px 18px rgba(15, 118, 255, 0.4);
+      color: #ddd;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Push author to bottom */
+      height: 100%; /* Ensure cards have equal height */
+      transition: box-shadow 0.3s ease;
+    }
+
+    .testimony:hover {
+      box-shadow: 0 10px 28px rgba(15, 118, 255, 0.7);
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #a9cfff;
+      flex-grow: 1; /* Fill vertical space to push author down */
+    }
+
+    .author {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #0f76ff;
+      letter-spacing: 0.05em;
+    }
+
+    .role {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 4px;
+      font-style: normal;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar-container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="#"><img src="favicon.ico" alt="Logo" /></a>
+      </div>
+
+      <nav class="nav-links">
+        <div class="dropdown">
+          <a>EXPERIENCE</a>
+          <div class="dropdown-content">
+            <a href="maintenance.html">PR Testimonies</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a>DIRECTORY</a>
+          <div class="dropdown-content">
+            <a href="maintenance.html">Rank Structure</a>
+            <a href="maintenance.html">Department Leadership</a>
+            <a href="maintenance.html">Partners</a>
+            <a href="maintenance.html">PR Bios</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a>RESOURCES</a>
+          <div class="dropdown-content">
+            <a href="https://discord.gg/bloxco">Discord</a>
+            <a href="https://status.bloxco.net">Status</a>
+            <a href="https://links.bloxco.net">Social Links</a>
+            <a href="https://app.hyra.io">Hyra</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="cta-button">
+        <button>LOGIN</button>
+      </div>
+    </div>
+  </header>
+
+  <h2>Public Relations Testimonies</h2><br>
+  <p>Here we have two different members sharing their experiences in the Bloxco's PR Department. OfficialNav, the director of PR, and AGuyNamedKevin, the Marketing Lead.</p>
+
+  <main>
+    <article class="testimony">
+      <p class="quote">"After taking a short break from the corporate team, I first joined PR in June of 2024. PR welcomed me with open arms, but unfortunately due to internal conflicts, I was forced to transfer out. I transferred to the HR department and stayed there until I was invited by Sapro, Chase, Owen, and Marc to transfer back into PR as the enagagement lead. I helped open the department and eventually became the PR director. PR has been a crucial part of my Bloxco experience, and I truly grateful to the people who allowed me to be in it."</p>
+      <div class="author">OfficialNav</div>
+      <div class="role">Director of PR</div>
+    </article>
+
+    <article class="testimony">
+      <p class="quote">"Being in PR has taught me a lot. I started as a marketing intern not knowing much about videos, but with training and help from my team, I improved. Now my videos are featured on Bloxco’s TikTok and YouTube. After my internship, I was promoted to Junior Corporate, then later to Head Corporate – Marketing Lead, skipping Senior Corporate. I now train new interns, read applications, and help with other PR tasks. Bloxco has been super welcoming, and it’s been an awesome journey!"</p>
+      <div class="author">AGuyNamedKevin</div>
+      <div class="role">Marketing Lead</div>
+    </article>
+  </main>
+</body>
+</html>
