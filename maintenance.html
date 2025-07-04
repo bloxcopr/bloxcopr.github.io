@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <!-- Website Encoding -->
+        <meta charset="UTF-8">
+        <!-- Traditional Meta Tags -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="application-name" content="Bloxco PR Hub">
+        <meta name="author" content="Bloxco PR Department">
+        <meta name="description" content="The official Bloxco PR hub">
+        <meta name="keywords" content="Bloxco, PR">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Page Title -->
+        <title>Bloxco PR Hub</title>
+        <!-- CSS Styles Linking -->
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- Favicon Linking -->
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <script defer src="script.js"></script>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* GENERAL */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #000;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 420px;
+  padding: 40px 20px;
+  opacity: 0;
+  animation: fadeIn 1.6s forwards ease;
+  color: #d1d1d1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.animation-wrapper {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 28px;
+  filter: drop-shadow(0 0 5px #0f76ff);
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin: 0 0 16px;
+  color: #ffffff;
+  text-shadow:
+    0 0 10px #0f76ff,
+    0 0 20px #0f76ff;
+  letter-spacing: 0.05em;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  margin: 0 0 28px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.status {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #707070;
+  margin-bottom: 36px;
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid #0f76ff;
+  color: #0f76ff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 28px;
+  border-radius: 8px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  box-shadow:
+    0 0 8px #0f76ff,
+    inset 0 0 5px #0f76ff;
+  transition: 
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+  user-select: none;
+}
+
+button:hover,
+button:focus {
+  background-color: #0f76ff;
+  color: #fff;
+  box-shadow:
+    0 0 14px #0f76ff,
+    inset 0 0 8px #0f76ff;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* NAVBAR CONTAINER */
+.navbar-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+/* DYNAMIC ISLAND STYLE */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.8rem 2rem;
+  background-color: #0d0d0d;
+  border-radius: 999px;
+  width: 90%;
+  max-width: 1100px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+/* LOGO */
+.logo img {
+  height: 30px;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+.nav-links > .dropdown > a {
+  font-weight: bold;
+  position: relative;
+}
+
+.dropdown-content {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  position: absolute;
+  top: 35px;
+  background-color: #111;
+  padding: 0.8rem 0;
+  border-radius: 12px;
+  min-width: 150px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease-in-out;
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px 16px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #222;
+}
+
+/* CTA BUTTON */
+.cta-button button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button button:hover {
+  background-color: #0056cc;
+}
+
+/* MOBILE MENU TOGGLE */
+.mobile-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #0d0d0d;
+  border-radius: 12px;
+  padding: 1rem;
+  position: absolute;
+  top: 70px;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 999;
+}
+
+.mobile-menu a {
+  padding: 10px 0;
+  border-bottom: 1px solid #222;
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links,
+  .cta-button {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="navbar-container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="#">
+          <img src="favicon.ico" alt="Logo" />
+        </a>
+      </div>
+
+      <nav class="nav-links">
+        <div class="dropdown">
+          <a>EXPERIENCE</a>
+          <div class="dropdown-content">
+            <a href="maintenance.html">PR Testimonies</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a>DIRECTORY</a>
+          <div class="dropdown-content">
+            <a href="maintenance.html">Rank Structure</a>
+            <a href="maintenance.html">Department Leadership</a>
+            <a href="maintenance.html">Partners</a>
+            <a href="maintenance.html">PR Bios</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a>RESOURCES</a>
+          <div class="dropdown-content">
+            <a href="https://discord.gg/bloxco">Discord</a>
+            <a href="https://status.bloxco.net">Status</a>
+            <a href="https://links.bloxco.net">Social Links</a>
+            <a href="https://app.hyra.io">Hyra</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="cta-button">
+        <button>LOGIN</button>
+      </div>
+
+      <div class="mobile-toggle" id="mobile-toggle">☰</div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#">ABOUT</a>
+      <a href="#">CORPORATE</a>
+      <a href="#">RESOURCES</a>
+      <a href="#">LOGIN</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="animation-wrapper" id="lottie"></div>
+    <h1>We'll be right back!</h1>
+    <p>Our PR Hub is currently undergoing scheduled maintenance.<br />We'll be back shortly with some exciting new updates!</p>
+    <div class="buttons">
+      <a href="https://discord.gg/bloxco">
+        <button>Join our discord server!</button>
+      </a>
+      <a href="index.html">
+        <button>Visit Homepage</button>
+      </a>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+  <script>
+    lottie.loadAnimation({
+      container: document.getElementById('lottie'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json'
+    });
+  </script>
+</body>
+</html>
